@@ -93,48 +93,12 @@ public class ProductController {
 	
 	
 	
-	@GetMapping(value = "/product/findById/{id}")
-	public ResponseEntity<?> findById(@PathVariable(value = "id") Integer id) {
-		Map<String, Object> map = new HashMap<>();
-		try {
-			Product product = productService.findById(id).get();
-			map.put("message", "Data get successfully");
-			map.put("data", product);
-			map.put("statusCode", 200);
-			return ResponseEntity.ok(map);
-		} catch (Exception e) {
-			e.printStackTrace();
-			map.put("message", "Data fetch failed");
-			map.put("data", null);
-			map.put("statusCode", 400);
-			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(map);
-		}
-	}
+
 	
 	
 	
 	
-	
-	
-	//for category id find out.
-	
-	@GetMapping(value = "/product/category/{categoryId}")
-	public ResponseEntity<?> category(@PathVariable(value = "categoryId") Integer categoryId) {
-		Map<String, Object> map = new HashMap<>();
-		try {
-			List<Product> product =(List<Product>) productService.findByCetegoryId(categoryId);
-			map.put("message", "Data get successfully");
-			map.put("data", product);
-			map.put("statusCode", 200);
-			return ResponseEntity.ok(map);
-		} catch (Exception e) {
-			e.printStackTrace();
-			map.put("message", "Data fetch failed");
-			map.put("data", null);
-			map.put("statusCode", 400);
-			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(map);
-		}
-	}
+
 	
 	
 	
